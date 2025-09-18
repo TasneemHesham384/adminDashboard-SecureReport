@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>لوحة التحكم</title>
+  </head>
+  <body>
+    <div class="login d-flex">
+      <div class="login-form container">
+        <div class="logoo">
+          <i class="fa-solid fa-shield-halved ps-1"></i>
+          secureReport
+        </div>
+        <div class="welcome text-center">
+          <h2 class="fw-bold">مرحبًا بك</h2>
+          <p class="text-black-50 fw-bold">
+            قم بتسجيل الدخول للوصول إلى لوحة التحكم الإدارية الآمنة الخاصة بك.
+          </p>
+        </div>
+
+        <form action="">
+          <div class="mb-3">
+            <label for="email">البريد الإلكتروني</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="password">كلمة المرور</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="********"
+              required
+            />
+          </div>
+
+          <div class="rememberMe">
+            <label>
+              <input type="checkbox" id="remember" name="remember" />
+              تذكرني
+            </label>
+            <a href="forgetPassword.html" class="forgot-password">هل نسيت كلمة المرور؟</a>
+          </div>
+
+          <div class="mb-3">
+            <button type="submit">تسجيل الدخول</button>
+          </div>
+
+          <p class="signup text-black-50 fw-bold">
+            لا تملك حسابًا؟ <a href="register.html">سجّل هنا</a>
+          </p>
+        </form>
+      </div>
+      <div class="login-img">
+        <div class="login-info text-center">
+          <h1 class="fw-bold">مرحبًا بك مجددًا!</h1>
+          <p>
+            نظام متابعة البلاغات يساعدك على إدارة البلاغات بكفاءة، مع متابعة
+            دقيقة لحالتها، وضمان سرعة الاستجابة وجودة المعالجة، لتحقيق الشفافية
+            وتعزيز الثقة.
+          </p>
+        </div>
+        <div class="img d-flex align-items-center justify-content-center">
+          <div class="img-wrapper">
+            <img
+              src="http://localhost:5500/dashboard/imgs/web.jpg"
+              class="img-fluid"
+              alt=""
+            />
+            <img
+              src="http://localhost:5500/dashboard/imgs/all.jpg"
+              class="img-fluid position-absolute all"
+              alt=""
+            />
+            <img
+              src="http://localhost:5500/dashboard/imgs/chart (2).jpg"
+              class="img-fluid position-absolute chart"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/charts.js"></script>
+    <script src="JS/login.js"></script>
+  </body>
+</html>

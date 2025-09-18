@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>لوحة التحكم</title>
+  </head>
+  <body>
+    <div class="dashboard d-flex">
+      <div class="sidebar text-center">
+        <div
+          class="logo position-relative fw-bold pt-4 pb-4 text-white d-flex align-items-center"
+        >
+          <div class="icon">
+            <span class="petal p1"></span>
+            <span class="petal p2"></span>
+            <span class="petal p3"></span>
+            <span class="petal p4"></span>
+          </div>
+          <span class="logo-text">لوحة التحكم</span>
+          <!-- <i class="fa-solid fa-angles-right "></i> -->
+        </div>
+        <ul class="list-unstyled text-center nav">
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10 ms-10 me-10"
+              href="index.html"
+              ><i class="fa-solid fa-chart-line ms-2"></i
+              ><span>الصفحة الرئيسية</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="received-report.html"
+              ><i class="fa-solid fa-file-arrow-down ms-2"></i
+              ><span>البلاغات المستلمة</span></a
+            >
+          </li>
+
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="statistics.html"
+              ><i class="fa-solid fa-chart-bar ms-2"></i
+              ><span>الإحصائيات</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="users.html"
+              ><i class="fa-solid fa-graduation-cap fa-fw ms-2"></i
+              ><span>إدارة المستخدمين</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="active d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="setting.html"
+              ><i class="fa-solid fa-gear fa-fw ms-2"></i
+              ><span>الإعدادات</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="archive.html"
+              ><i class="fa-regular fa-file fa-fw ms-2"></i
+              ><span>الأرشيف</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="privacy.html"
+              ><i class="fa-solid fa-user-shield ms-2"></i
+              ><span>سياسة الخصوصية</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="content w-100 ps-3 pe-3">
+        <header class="mb-4">
+          <div
+            class="wrapper d-flex flex-wrap align-items-center justify-content-between mt-3 gap-3"
+          >
+            <div class="search position-relative">
+              <form action="">
+                <input
+                  type="text"
+                  class="font-white-50"
+                  placeholder="اكتب كلمة مفتاحية"
+                  style="padding-right: 35px"
+                />
+              </form>
+            </div>
+            <div
+              class="options d-flex align-items-center justify-content-between gap-3"
+            >
+              <div class="notifications d-flex">
+                <div class="notification me-3 position-relative">
+                  <i class="fa-regular fa-bell"></i>
+                  <div
+                    class="notification-popup position-absolute top-100 start-50 translate-middle-x bg-white text-dark p-2 rounded shadow"
+                    id="newReportPopup"
+                  >
+                    <p class="mb-0">تم استلام بلاغ جديد!</p>
+                  </div>
+                </div>
+                <div class="comments">
+                  <i class="fa-regular fa-comment-dots"></i>
+                </div>
+                <div class="setting">
+                  <i class="fa-solid fa-gear fa-fw ms-2"></i>
+                </div>
+              </div>
+              <div
+                class="night d-flex justify-content-between align-items-center"
+              >
+                <span class="indicator"></span>
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="wrapper mt-5 mb-5">
+          <div
+            class="users-head d-flex align-items-center justify-content-between"
+          >
+            <h3 class="fw-bold">اعدادات المستخدم</h3>
+          </div>
+          <div class="card">
+            <div
+              class="card-header d-flex justify-content-between align-items-center"
+            >
+              <h5 class="mb-0">الملف الشخصي</h5>
+            </div>
+
+            <div class="card-body">
+              <div class="row align-items-center mb-4">
+                <div class="col-md-3 text-center">
+                  <img
+                    src="imgs/default-avatar2.png"
+                    alt="الصورة الشخصية"
+                    class="rounded-circle img-fluid mb-2"
+                  />
+                  <input type="file" class="form-control form-control-sm" />
+                </div>
+                <div class="col-md-9">
+                  <h6 class="mb-1">محمد أحمد</h6>
+                  <p class="text-muted mb-0">user@example.com</p>
+                  <p class="text-muted">مشرف النظام</p>
+                </div>
+              </div>
+
+              <form>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">الاسم الكامل</label>
+                    <input type="text" class="form-control" value="محمد أحمد" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">البريد الإلكتروني</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      value="user@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">كلمة المرور الحالية</label>
+                    <input type="password" class="form-control" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label">كلمة مرور جديدة</label>
+                    <input type="password" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">رقم الهاتف</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="+20 100 000 0000"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">العنوان</label>
+                  <textarea
+                    class="form-control"
+                    rows="2"
+                    placeholder="المنوفية، مصر"
+                  ></textarea>
+                </div>
+
+                <button class="btn btn-primary">حفظ التغييرات</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/setting.js"></script>
+  </body>
+</html>

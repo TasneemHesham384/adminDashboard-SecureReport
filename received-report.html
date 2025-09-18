@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>لوحة التحكم</title>
+  </head>
+  <body>
+    <div class="dashboard d-flex">
+      <div class="sidebar text-center">
+        <div
+          class="logo position-relative fw-bold pt-4 pb-4 text-white d-flex align-items-center"
+        >
+          <div class="icon">
+            <span class="petal p1"></span>
+            <span class="petal p2"></span>
+            <span class="petal p3"></span>
+            <span class="petal p4"></span>
+          </div>
+          <span class="logo-text">لوحة التحكم</span>
+          <!-- <i class="fa-solid fa-angles-right "></i> -->
+        </div>
+        <ul class="list-unstyled text-center nav">
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10 ms-10 me-10"
+              href="index.html"
+              ><i class="fa-solid fa-chart-line ms-2"></i
+              ><span>الصفحة الرئيسية</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="active d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="received-report.html"
+              ><i class="fa-solid fa-file-arrow-down ms-2"></i
+              ><span>البلاغات المستلمة</span></a
+            >
+          </li>
+
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="statistics.html"
+              ><i class="fa-solid fa-chart-bar ms-2"></i
+              ><span>الإحصائيات</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="users.html"
+              ><i class="fa-solid fa-graduation-cap fa-fw ms-2"></i
+              ><span>إدارة المستخدمين</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="setting.html"
+              ><i class="fa-solid fa-gear fa-fw ms-2"></i
+              ><span>الإعدادات</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="archive.html"
+              ><i class="fa-regular fa-file fa-fw ms-2"></i
+              ><span>الأرشيف</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="privacy.html"
+              ><i class="fa-solid fa-user-shield ms-2"></i
+              ><span>سياسة الخصوصية</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="content w-100 ps-3 pe-3">
+        <header class="mb-4">
+          <div
+            class="wrapper d-flex flex-wrap align-items-center justify-content-between mt-3 gap-3"
+          >
+            <div class="search position-relative">
+              <form action="">
+                <input
+                  type="text"
+                  class="font-white-50"
+                  placeholder="اكتب كلمة مفتاحية"
+                  style="padding-right: 35px"
+                />
+              </form>
+            </div>
+            <div
+              class="options d-flex align-items-center justify-content-between gap-3"
+            >
+              <div class="notifications d-flex">
+                <div class="notification me-3 position-relative">
+                  <i class="fa-regular fa-bell"></i>
+                  <div
+                    class="notification-popup position-absolute top-100 start-50 translate-middle-x bg-white text-dark p-2 rounded shadow"
+                    id="newReportPopup"
+                  >
+                    <p class="mb-0">تم استلام بلاغ جديد!</p>
+                  </div>
+                </div>
+                <div class="comments">
+                  <i class="fa-regular fa-comment-dots"></i>
+                </div>
+                <div class="setting">
+                  <i class="fa-solid fa-gear fa-fw ms-2"></i>
+                </div>
+              </div>
+              <div
+                class="night d-flex justify-content-between align-items-center"
+              >
+                <span class="indicator"></span>
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="wrapper mt-5 mb-5">
+          <div
+            class="users-head d-flex align-items-center justify-content-between"
+          >
+            <h3 class="fw-bold">البلاغات المستلمة</h3>
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div
+                    class="modal-header d-flex align-items-center justify-content-between"
+                  >
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      إضافة مستخدم
+                    </h5>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label"
+                          >الاسم</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="recipient-name"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="recipient-mail" class="col-form-label"
+                          >البريد الالكتروني</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="recipient-mail"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="recipient-role" class="col-form-label"
+                          >الدور</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="recipient-role"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="confirmAdd btn btn-primary">
+                      إضافة
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="users-table">
+            <div
+              class="table-filter d-flex align-items-center justify-content-between pb-3"
+            >
+              <form
+                action="
+             "
+              >
+                <select
+                  name="
+             "
+                  id="users"
+                >
+                  <option value="الكل" selected>الكل</option>
+                  <option value="المستلمة">المستلمة</option>
+                  <option value="قيد المراجعة">قيد المراجعة</option>
+                  <option value="قيد المعالجة">قيد المعالجة</option>
+                  <option value="المحلولة">المحلولة</option>
+                  <option value="المغلقة">المغلقة</option>
+                </select>
+              </form>
+              <div class="search position-relative">
+                <form action="">
+                  <input
+                    type="text"
+                    class="font-white-50"
+                    placeholder="id البلاغ"
+                    style="padding-right: 35px"
+                  />
+                </form>
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">نوع البلاغ</th>
+                  <th scope="col">العنوان</th>
+                  <th scope="col">الدور</th>
+                  <th scope="col">التاريخ</th>
+                  <th scope="col">الحالة</th>
+                  <th scope="col">عرض المزيد</th>
+                </tr>
+              </thead>
+              <tbody id="userTable">
+                <div
+                  class="modal fade"
+                  id="deleteConfirmModal"
+                  tabindex="-1"
+                  aria-labelledby="deleteConfirmLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmLabel">
+                          تأكيد الحذف
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="إغلاق"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        هل أنت متأكد أنك تريد حذف هذا المستخدم؟
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          إلغاء
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          id="confirmDelete"
+                        >
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tbody>
+            </table>
+            <nav aria-label="Page navigation">
+              <ul id="pagination" class="pagination"></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/reports.js"></script>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سياسة الخصوصية</title>
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/master.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: var(--back-ground);
+        color: var(--font-color);
+        font-family: "Cairo", sans-serif;
+      }
+      .page-title {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        color: #6e4fc8;
+        text-align: center;
+      }
+      .content-wrapper {
+        background: var(--box-color);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px var(--border);
+        line-height: 1.8;
+        max-width: 900px;
+        margin: auto;
+      }
+      .section-box {
+        background-color: rgba(255, 255, 255, 0.03);
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border: 1px solid #6e4fc8;
+      }
+      .section-box h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #6e4fc8;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-box p {
+        margin-bottom: 15px;
+        color: var(--font-color);
+      }
+      .section-box ul {
+        padding-right: 20px;
+        margin-bottom: 10px;
+      }
+      .section-box li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-right: 15px;
+      }
+      .section-box li::before {
+        content: "•";
+        position: absolute;
+        right: 0;
+        color: var(--purple);
+        font-size: 18px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard d-flex">
+      <!-- Sidebar -->
+      <div class="sidebar text-center">
+        <div
+          class="logo position-relative fw-bold pt-4 pb-4 text-white d-flex align-items-center"
+        >
+          <div class="icon">
+            <span class="petal p1"></span>
+            <span class="petal p2"></span>
+            <span class="petal p3"></span>
+            <span class="petal p4"></span>
+          </div>
+          <span class="logo-text">لوحة التحكم</span>
+        </div>
+        <ul class="list-unstyled text-center nav">
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10 ms-10 me-10"
+              href="index.html"
+              ><i class="fa-solid fa-chart-line ms-2"></i
+              ><span>الصفحة الرئيسية</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="received-report.html"
+              ><i class="fa-solid fa-file-arrow-down ms-2"></i
+              ><span>البلاغات المستلمة</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="statistics.html"
+              ><i class="fa-solid fa-chart-bar ms-2"></i
+              ><span>الإحصائيات</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="users.html"
+              ><i class="fa-solid fa-graduation-cap fa-fw ms-2"></i
+              ><span>إدارة المستخدمين</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="setting.html"
+              ><i class="fa-solid fa-gear fa-fw ms-2"></i
+              ><span>الإعدادات</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="archive.html"
+              ><i class="fa-regular fa-file fa-fw ms-2"></i
+              ><span>الأرشيف</span></a
+            >
+          </li>
+          <li>
+            <a
+              class="active d-flex align-items-center fs-14 c-black rad-6 p-10"
+              href="privacy.html"
+              ><i class="fa-solid fa-user-shield ms-2"></i
+              ><span>سياسة الخصوصية</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content w-100 ps-3 pe-3 mb-2">
+        <!-- Header -->
+        <header class="mb-4">
+          <div
+            class="wrapper d-flex flex-wrap align-items-center justify-content-between mt-3 gap-3"
+          >
+            <div class="search position-relative">
+              <form action="">
+                <input
+                  type="text"
+                  class="font-white-50"
+                  placeholder="اكتب كلمة مفتاحية"
+                  style="padding-right: 35px"
+                />
+              </form>
+            </div>
+            <div
+              class="options d-flex align-items-center justify-content-between gap-3"
+            >
+              <div class="notifications d-flex">
+                <div class="notification me-3 position-relative">
+                  <i class="fa-regular fa-bell"></i>
+                  <div
+                    class="notification-popup position-absolute top-100 start-50 translate-middle-x bg-white text-dark p-2 rounded shadow"
+                    id="newReportPopup"
+                  >
+                    <p class="mb-0">تم استلام بلاغ جديد!</p>
+                  </div>
+                </div>
+                <div class="comments">
+                  <i class="fa-regular fa-comment-dots"></i>
+                </div>
+                <div class="setting">
+                  <i class="fa-solid fa-gear fa-fw ms-2"></i>
+                </div>
+              </div>
+              <div
+                class="night d-flex justify-content-between align-items-center"
+              >
+                <span class="indicator"></span>
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Page Title -->
+        <h1 class="page-title">سياسة الخصوصية</h1>
+
+        <!-- Privacy Content -->
+        <div class="content-wrapper">
+          <div class="section-box">
+            <h2><i class="fa-solid fa-circle-info"></i> مقدمة</h2>
+            <p>
+              نحن ملتزمون بحماية خصوصيتكم عند استخدام لوحة التحكم. الهدف من هذه
+              السياسة هو توضيح كيفية جمع البيانات ومعالجتها وحمايتها.
+            </p>
+          </div>
+
+          <div class="section-box">
+            <h2><i class="fa-solid fa-database"></i> المعلومات التي نجمعها</h2>
+            <ul>
+              <li>بيانات تسجيل الدخول مثل البريد الإلكتروني وكلمة المرور.</li>
+              <li>
+                بيانات البلاغات المستلمة بما في ذلك الموقع، التفاصيل، والمرفقات.
+              </li>
+              <li>بيانات التفاعل مع النظام مثل الإشعارات وتفضيلات المستخدم.</li>
+            </ul>
+          </div>
+
+          <div class="section-box">
+            <h2>
+              <i class="fa-solid fa-chart-line"></i> كيفية استخدام البيانات
+            </h2>
+            <ul>
+              <li>معالجة وعرض البلاغات داخل لوحة التحكم.</li>
+              <li>إرسال الإشعارات والتنبيهات للمستخدمين المسؤولين.</li>
+              <li>تحليل الأداء والإحصاءات لتحسين النظام.</li>
+            </ul>
+          </div>
+
+          <div class="section-box">
+            <h2><i class="fa-solid fa-paperclip"></i> المرفقات والملفات</h2>
+            <p>
+              جميع الملفات المرفقة بالبلاغات، سواء كانت صوتية أو مستندات، يتم
+              حفظها بأمان واستخدامها فقط للأغراض المتعلقة بالبلاغات.
+            </p>
+          </div>
+
+          <div class="section-box">
+            <h2><i class="fa-solid fa-lock"></i> حماية البيانات</h2>
+            <p>نقوم بتطبيق أفضل معايير الأمان لحماية</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/main.js"></script>
+  </body>
+</html>
