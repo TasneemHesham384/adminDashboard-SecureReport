@@ -697,47 +697,45 @@ path:hover {
 
 /* end map  */
 /* end content */
-.wrapper {
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-@media (max-width: 767px) {
-  .wrapper {
-    grid-template-columns: minmax(200px, 1fr);
-    margin-left: 10px;
-    margin-right: 10px;
-    gap: 10px;
-  }
-}
 
 /* start user management */
 .users-table {
-  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 100%;
   margin: 30px 0;
   padding: 20px 0;
+  border: 1px solid var(--border);
   border-radius: 12px;
+  overflow-x: scroll;
+  overflow-y: auto;
+  position: relative;
+  scroll-behavior: smooth;
 }
-.users-table .search input {
-  width: 200px !important;
-}
-.users-table .search input:focus {
-  width: 230px !important;
-  border: 1px solid var(--purple);
-}
+
 .users-table .table-filter {
   border-bottom: 1px solid var(--border);
   padding: 0 20px;
 }
+
+.users-table .search input {
+  width: 200px !important;
+}
+
+.users-table .search input:focus {
+  width: 230px !important;
+  border: 1px solid var(--purple);
+}
+
 .users-table .btn {
   background-color: var(--box-color) !important;
   color: var(--font-color);
 }
+
 .users-table .btn:hover {
   background-color: var(--purple) !important;
   color: white;
 }
+
 .users-table select {
   background-color: var(--secondry-color);
   color: var(--font-color);
@@ -745,38 +743,104 @@ path:hover {
   border-radius: 10px;
   cursor: pointer;
 }
+
 .users-table select option {
   cursor: pointer;
 }
+
 .users-table table {
   color: var(--font-color) !important;
   border-color: var(--border) !important;
   padding: 10px;
-  overflow: scroll;
+  min-width: 100%;
+  max-width: 600px;
+  overflow-x: auto;
 }
-.table table thead {
+
+.users-table table thead {
   background-color: var(--secondry-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: 14px;
 }
+
 .table > :not(:last-child) > :last-child > * {
   border-bottom-color: var(--border);
   background-color: var(--main-color);
 }
-.dropdown-menu {
+
+table tbody tr {
+  color: var(--font-color) !important;
+}
+
+/* ========== Scrollbar ========== */
+.users-table::-webkit-scrollbar {
+  height: 8px;
+  width: 10px;
+}
+
+.users-table::-webkit-scrollbar-track {
+  background: var(--secondry-color);
+  border-radius: 10px;
+}
+
+.users-table::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 10px;
+}
+
+.users-table::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-purple);
+}
+
+/* ========== Pagination ========== */
+.page-item .page-link {
   background-color: var(--main-color) !important;
+  border: var(--border);
 }
-.drop {
-  background-color: var(--main-color);
-  width: 30px;
-  height: 30px;
-  border-color: var(--border);
-  color: var(--font-color);
-  transform: rotate(90deg);
+
+.page-item .page-link:hover {
+  background-color: var(--purple) !important;
+  color: white;
 }
-.dropdown-menu li a:hover {
-  background-color: var(--secondry-color) !important;
+
+.pagination .page-item.active .page-link {
+  background-color: var(--purple) !important;
+  border-color: var(--main-color);
+  color: #fff;
+}
+
+/* ========== Modal ========== */
+.modal-content {
+  background-color: var(--main-color) !important;
   color: var(--font-color);
 }
 
+.modal-content input {
+  background-color: var(--secondry-color) !important;
+  color: var(--font-color) !important;
+}
+
+.modal-content input:focus {
+  border-color: var(--purple) !important;
+  box-shadow: none !important;
+}
+
+.modal-footer .btn {
+  background-color: var(--box-color);
+  color: var(--font-color);
+}
+
+#deleteConfirmModal button:hover {
+  background-color: transparent !important;
+}
+
+.form-control {
+  background-color: var(--secondry-color) !important;
+}
+
+/* ========== Status Indicator ========== */
 .status-indicator {
   display: inline-block;
   width: 10px;
@@ -786,6 +850,7 @@ path:hover {
   vertical-align: middle;
   background-color: gray;
 }
+
 .status-indicator.active {
   background-color: green;
 }
@@ -793,108 +858,44 @@ path:hover {
 .status-indicator.inactive {
   background-color: red !important;
 }
-.page-item .page-link {
+
+/* ========== Dropdown ========== */
+.dropdown-menu {
   background-color: var(--main-color) !important;
-  border: var(--border);
-}
-.page-item .page-link:hover {
-  background-color: var(--purple) !important;
-  color: white;
-}
-.modal-content {
-  background-color: var(--main-color) !important;
-  color: var(--font-color);
-}
-.modal-content input {
-  background-color: var(--secondry-color) !important;
-  color: var(--font-color) !important;
-}
-.modal-content input:focus {
-  border-color: var(--purple) !important;
-  box-shadow: none !important;
-}
-.form-control {
-  background-color: var(--secondry-color) !important;
 }
 
-.pagination .page-item.active .page-link {
-  background-color: var(--purple) !important;
-  border-color: var(--main-color);
-  color: #fff;
+.dropdown-menu li a:hover {
+  background-color: var(--secondry-color) !important;
+  color: var(--font-color);
 }
+
 .dropdown-item {
   font-size: 14px;
   font-weight: normal;
 }
-#deleteConfirmModal button:hover {
-  background-color: transparent !important;
-}
-table tbody tr {
-  color: var(--font-color) !important;
-}
-.users-table {
-  width: 100%;
-  overflow-x: auto;
-  position: relative;
-  scroll-behavior: smooth;
+
+.drop {
+  background-color: var(--main-color);
+  width: 30px;
+  height: 30px;
+  border-color: var(--border);
+  color: var(--font-color);
+  transform: rotate(90deg);
 }
 
-.users-table {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: auto;
-  position: relative;
-  scroll-behavior: smooth;
-}
-.users-table table {
-  min-width: 700px;
-}
-.users-table table thead {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.users-table::-webkit-scrollbar {
-  height: 8px;
-  width: 10px;
-}
-.users-table::-webkit-scrollbar-track {
-  background: var(--secondry-color);
-  border-radius: 10px;
-}
-.users-table::-webkit-scrollbar-thumb {
-  background: var(--purple);
-  border-radius: 10px;
-}
-.users-table::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-purple);
-}
-
-@media (max-width: 768px) {
-  .users-table {
-    font-size: 14px;
-  }
-
-  .users-table table th,
-  .users-table table td {
-    padding: 8px;
-    white-space: nowrap;
-  }
-}
-
-/* end user management */
-/* start report */
+/* ========== Report Dropdown ========== */
 .dropdown.reportStatus .dropdown-toggle {
-  padding: 5px 5px;
+  padding: 5px;
   border-radius: 10 !important;
   font-size: 14px !important;
   color: var(--font-color);
 }
+
 .dropdown.reportStatus .dropdown-toggle.new {
   color: var(--color-new);
   background-color: var(--bg-new) !important;
 }
+
 .dropdown.reportStatus .dropdown-toggle.new:hover {
   color: #fff;
   background-color: var(--color-new) !important;
@@ -904,6 +905,7 @@ table tbody tr {
   color: var(--color-review);
   background-color: var(--bg-review) !important;
 }
+
 .dropdown.reportStatus .dropdown-toggle.review:hover {
   color: #fff;
   background-color: var(--main-color) !important;
@@ -913,6 +915,7 @@ table tbody tr {
   color: var(--color-process);
   background-color: var(--bg-process) !important;
 }
+
 .dropdown.reportStatus .dropdown-toggle.process:hover {
   color: #fff;
   background-color: var(--color-process) !important;
@@ -922,6 +925,7 @@ table tbody tr {
   color: var(--color-solved);
   background-color: var(--bg-solved) !important;
 }
+
 .dropdown.reportStatus .dropdown-toggle.solved:hover {
   color: #fff;
   background-color: var(--color-solved) !important;
@@ -931,50 +935,106 @@ table tbody tr {
   color: var(--color-closed);
   background-color: var(--bg-closed) !important;
 }
+
 .dropdown.reportStatus .dropdown-toggle.closed:hover {
   color: #fff;
   background-color: var(--color-closed) !important;
-}
-
-/* Dropdown items */
-.dropdown.reportStatus ul li a {
-  background-color: transparent !important;
-  color: #333;
 }
 
 .dropdown.reportStatus ul li a {
   background-color: transparent !important;
   color: var(--font-color);
 }
-/* end report */
-/* start archieve */
-.users-table.archive {
-  max-height: 600px;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-  position: relative;
-}
-.users-table.archive table thead {
-  position: sticky;
-  top: -20px;
-  left: 0;
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .users-table {
+    font-size: 14px;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .users-table table {
+    /* display: block; */
+    min-width: 500px;
+    width: max-content;
+  }
+
+  .users-table table th,
+  .users-table table td {
+    padding: 8px;
+    white-space: nowrap;
+  }
+
+  .users-head {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: start !important;
+    gap: 15px;
+    /* text-align: start; */
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  .users-head h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .users-head .btn-primary {
+    width: 100% !important;
+    font-size: 14px;
+  }
+
+  .modal-dialog {
+    max-width: 95%;
+    margin: auto;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-footer .btn {
+    width: 90%;
+  }
+
+  .pagination-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  nav.d-flex .pagination {
+    flex-wrap: wrap;
+  }
+
+  nav.d-flex .d-flex {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
-.users-table::-webkit-scrollbar {
-  width: 10px;
+@media (max-width: 576px) {
+  .table-filter {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .table-filter form select {
+    width: 100% !important;
+    text-align: start;
+  }
+  .table-filter .search input {
+    width: 100% !important;
+  }
 }
 
-.users-table::-webkit-scrollbar-track {
-  background: var(--secondry-color);
-  border-radius: 10px;
-}
-.users-table::-webkit-scrollbar-thumb {
-  background: var(--purple);
-  border-radius: 10px;
-}
-.users-table::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-purple);
-}
 /* end archieve */
 /* start setting */
 /* الكارد */
@@ -986,14 +1046,12 @@ table tbody tr {
   overflow: hidden;
 }
 
-/* رأس الكارد */
 .card-header {
   background-color: var(--secondry-color);
   border-bottom: 1px solid var(--border);
   padding: 0;
 }
 
-/* التبويبات */
 .card-header-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -1093,7 +1151,6 @@ input[type="color"] {
 }
 /* end setting */
 /* start profile */
-/* الأساسيات */
 body {
   background-color: var(--back-ground);
   color: var(--font-color);
@@ -1101,7 +1158,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* الكارد */
 .card {
   background-color: var(--box-color);
   border: 1px solid var(--border);
@@ -1110,7 +1166,6 @@ body {
   overflow: hidden;
 }
 
-/* رأس الكارد */
 .card-header {
   background-color: var(--secondry-color);
   border-bottom: 1px solid var(--border);
@@ -1128,12 +1183,10 @@ body {
   padding: 0.4rem 0.8rem;
 }
 
-/* جسم الكارد */
 .card-body {
   padding: 2rem;
 }
 
-/* الصورة الشخصية */
 .card-body img {
   width: 120px;
   height: 120px;
@@ -1518,3 +1571,18 @@ input[type="tel"] {
 }
 
 /* end login */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .wrapper {
+    grid-template-columns: minmax(200px, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+  }
+}
